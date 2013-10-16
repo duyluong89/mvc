@@ -2,6 +2,10 @@
 class views{
 	public $_data;
 	public $load;
+	
+	public function __construct(){
+		$this->load = new Load;
+	}
 	public function assgined($name,$data){
 		$this->_data[$name] = $data;
 	}
@@ -10,7 +14,7 @@ class views{
 		return $this->_data;
 	}
 	public function render(){
-		$this->load = new Load;
+		
 		$this->load->view('index',$this->_data);
 	}
 }
