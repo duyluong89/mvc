@@ -1,10 +1,4 @@
 <?php
-echo 'tét';
+echo 'asdsad';
+echo $abc;
 ?>
-
-dsaddđ
-sdas
-da
-đa
-ad
-a

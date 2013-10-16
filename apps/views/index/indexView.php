@@ -1,3 +1,4 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
-echo $content;
+echo isset($content) ? $content : "";
+echo $abc;
