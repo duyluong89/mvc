@@ -7,7 +7,8 @@ class SystenConfig{
 	public $user;
 	public $password;
 	public $database;
-	
+	public $db_Charset;
+	public $db_Type;
 	// system site
 	public $siteUrl;
 	public $skinUrl;
@@ -30,6 +31,8 @@ class SystenConfig{
 		$this->user = "root";
 		$this->password = "";
 		$this->database = "mvc";
+		$this->db_Charset = "utf8";
+		$this->db_Type = "mysql";
 		
 		$this->siteUrl = "http://mvc.local/";
 		$this->skinUrl = $this->siteUrl . 'public/skins/';

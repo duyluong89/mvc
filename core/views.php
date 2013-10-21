@@ -6,7 +6,7 @@ class views{
 	public function __construct(){
 		$this->load = new Load;
 	}
-	public function assgined($name,$data){
+	public function assigned($name,$data){
 		$this->_data[$name] = $data;
 	}
 	
@@ -14,7 +14,6 @@ class views{
 		return $this->_data;
 	}
 	public function render(){
-		
-		$this->load->view('index',$this->_data);
+		$this->load->template('default',$this->getData());
 	}
 }
