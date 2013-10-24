@@ -7,24 +7,36 @@ class Request{
 	private $_args;
 	
 	private $_administrator = "";
+	private $_keyProvider;
 	
+	private $config;
 	public function __construct(){
+		global $config;
+		$this->config = $config;
+		
 		$parts = explode('/',$_SERVER['REQUEST_URI']);
 		$parts = array_filter($parts);
-		if(($c = array_shift($parts)) == 'administrator'){
-			$this->_administrator = 'administrator';
-			$this->_controller = ($c = array_shift($parts))? $c: 'index';
-			$this->_method = ($c = array_shift($parts))? $c: 'index';
-			$this->_args = (isset($parts[0])) ? $parts : array();
-		}else{
-			$this->_administrator = "";
-			$this->_controller = ($c)? $c: 'index';
-			$this->_method = ($c = array_shift($parts))? $c: 'index';
-			$this->_args = (isset($parts[0])) ? $parts : array();
+		$c = array_shift($parts);
+		foreach ($this->config->provider as $key => $provider){
+			if( $c == $provider){
+				$this->_keyProvider = $key;
+				$this->_administrator = $provider;
+				$this->_controller = ($c = array_shift($parts))? $c: 'index';
+				$this->_method = ($c = array_shift($parts))? $c: 'index';
+				$this->_args = (isset($parts[0])) ? $parts : array();
+				return;
+			}	
 		}
+		$this->_controller = ($c)? $c: 'index';
+		$this->_method = ($c = array_shift($parts))? $c: 'index';
+		$this->_args = (isset($parts[0])) ? $parts : array();
+		
 		
 	}
 	
+	public function getKeyProvider(){
+		return $this->_keyProvider;
+	}
 	public function getAdministrator(){
 		return $this->_administrator != "" ? true : false;
 	}

@@ -18,9 +18,12 @@ class SystenConfig{
 	public $skinCss;
 	public $skinJs;
 	public $skinImages;
+	
+	public $provider;
+	
 	public function __construct(){
-		$this->isLocation = 0;
-		if($this->isLocation == 0){
+		$this->isLocal = 0;
+		if($this->isLocal == 0){
 			$this->localConfig();
 		}else{
 			$this->liveConfig();
@@ -37,12 +40,18 @@ class SystenConfig{
 		$this->siteUrl = "http://mvc.local/";
 		$this->skinUrl = $this->siteUrl . 'public/skins/';
 		$this->skinName = 'default';
-		$this->skinImages = $this->siteUrl . 'public/skins/' . $this->skinName . '/images/';
-		$this->skinCss = $this->siteUrl . 'public/skins/' . $this->skinName . '/css/';
-		$this->skinJs = $this->siteUrl . 'public/skins/' . $this->skinName . '/js/';
+		$this->skinImages = $this->siteUrl . 'templates/' . $this->skinName . '/images/';
+		$this->skinCss = $this->siteUrl . 'templates/' . $this->skinName . '/css/';
+		$this->skinJs = $this->siteUrl . 'templates/' . $this->skinName . '/js/';
 		$this->uploadUrl = $this->siteUrl . 'public/uploads/';
 		$this->publicImages = $this->siteUrl . 'public/images/';
 		
+		
+		$this->provider = array(
+				'admin'=>'administrator',
+				'api' => 'api',
+				'test'=>'test',
+		);
 			
 	}
 	

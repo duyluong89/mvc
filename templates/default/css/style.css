@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+*{margin:0; padding:0}
+ul{list-style:none;}
+body{}
+article{}
+section.container{width:1200px; margin:0 auto;}
+header{background:#f0f0f0; height:100px;}
+#logo{float:left;}
+nav{float:left; display:block;}
+nav ul{float:left;}
+nav ul li{float: left; padding-right:10px;}
+
+session{}
+footer{}

@@ -1,14 +1,16 @@
 <?php
 class Router{
-
+	
 	public static function route(Request $request){
 		$isAdministrator = $request->getAdministrator();
 		
 		$controller = $request->getController().'Controller';
 		$method = $request->getMethod();
 		$args = $request->getArgs();
-		if($isAdministrator == true){
-			$controllerFile = ADMINPATH.'controllers/'.$controller.'.php';
+		if($isAdministrator != false){
+			$pathProvider = strtoupper($request->getKeyProvider() . "PATH");
+			$user_defined_constants=get_defined_constants(true)['user'][$pathProvider];
+			$controllerFile =  $user_defined_constants .'controllers/'.$controller.'.php';
 		}else{
 			$controllerFile = APPPATH.'controllers/'.$controller.'.php';
 		}
