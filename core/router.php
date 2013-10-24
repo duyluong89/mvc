@@ -2,11 +2,16 @@
 class Router{
 
 	public static function route(Request $request){
+		$isAdministrator = $request->getAdministrator();
+		
 		$controller = $request->getController().'Controller';
 		$method = $request->getMethod();
 		$args = $request->getArgs();
-
-		$controllerFile = APPPATH.'controllers/'.$controller.'.php';
+		if($isAdministrator == true){
+			$controllerFile = ADMINPATH.'controllers/'.$controller.'.php';
+		}else{
+			$controllerFile = APPPATH.'controllers/'.$controller.'.php';
+		}
 		if(is_readable($controllerFile)){
 			
 			require_once $controllerFile;
