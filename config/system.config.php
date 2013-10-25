@@ -21,6 +21,9 @@ class SystenConfig{
 	
 	public $provider;
 	
+	public $language;
+	public $default_logo;
+	
 	public function __construct(){
 		$this->isLocal = 0;
 		if($this->isLocal == 0){
@@ -52,7 +55,9 @@ class SystenConfig{
 				'api' => 'api',
 				'test'=>'test',
 		);
-			
+
+		$this->language = "vn";
+		$this->default_logo = $this->publicImages ."logo.png";
 	}
 	
 	function liveConfig(){

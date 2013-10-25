@@ -12,12 +12,12 @@
 	<header>
 		<section class="container">
 			<div class="header-top">
-				<div id="logo">logo</div>
+				<div id="logo"><img src=<?php echo $config->default_logo?> /></div>
 				<nav>
 				<ul>
-					<li><a href="<?php echo $config->siteUrl?>">Trang chủ</a></li>
-					<li><a href="<?php echo $config->siteUrl?>">Giới thiệu</a></li>
-					<li><a href="<?php echo $config->siteUrl?>">Cá nhân</a></li>
+					<li><a href="<?php echo $config->siteUrl?>"><?php echo $trans->t('home')?></a></li>
+					<li><a href="<?php echo $config->siteUrl?>"><?php echo $trans->t("info")?></a></li>
+					<li><a href="<?php echo $config->siteUrl?>"><?php echo $trans->t('person')?></a></li>
 				</ul>
 				</nav>
 			</div>

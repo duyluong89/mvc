@@ -3,10 +3,12 @@ class views{
 	public $_data;
 	public $load;
 	public $config;
+	public $translate;
 	public function __construct(){
-		global $config;
+		global $config,$translate;
 		$this->load = new Load;
 		$this->config = $config;
+		$this->translate = $translate;
 	}
 	public function assigned($name,$data){
 		$this->_data[$name] = $data;
@@ -18,7 +20,8 @@ class views{
 	public function render(){
 		$baseData = array(
 				'config'=>$this->config,
-				'view' => $this
+				'view' => $this,
+				'trans' => $this->translate
 		);
 		
 		$data  = array_merge($baseData,$this->getData());
