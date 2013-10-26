@@ -1,14 +1,25 @@
 @CHARSET "UTF-8";
 *{margin:0; padding:0}
 ul{list-style:none;}
-body{}
+body{background:#03517e;font-family: Arial;
+font-size: 12px;
+color: #666;}
 article{}
-section.container{width:1200px; margin:0 auto;}
-header{background:#f0f0f0; height:100px;}
+header section.container{width: 948px;
+margin: 0 auto;
+padding: 20px 0;
+height: 60px;}
+section.container{ width:948px; margin:0 auto; }
 #logo{float:left;}
-nav{float:left; display:block;}
+nav{float:left; display:block;padding: 0px 30px;}
 nav ul{float:left;}
-nav ul li{float: left; padding-right:10px;}
-
-session{}
+nav ul li{float: left; padding-right:10px;padding: 6px;}
+nav ul li a{color:#dadada; text-decoration: none; font-size:12px;font-weight: bold;
+text-transform: uppercase;}
+article{min-height:600px; background:#ececec; width:100%}
 footer{}
+.right{float:right;}
+nav ul.right{float:right;}
+.block-user-info ul li{ float:left; padding:6px;}
+.block-user-info ul li a{color:#dadada; text-decoration: none; font-size:12px;font-weight: bold;
+text-transform: capitalize;}
