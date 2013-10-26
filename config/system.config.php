@@ -1,8 +1,7 @@
 <?php
-class SystenConfig{
-	
+class SystenConfig {
 	protected $isLocation; // 0: local; 1: live
-	//Database Config
+	                       // Database Config
 	public $host;
 	public $user;
 	public $password;
@@ -18,21 +17,19 @@ class SystenConfig{
 	public $skinCss;
 	public $skinJs;
 	public $skinImages;
-	
+	public $skinAdmin;
 	public $provider;
-	
 	public $language;
 	public $default_logo;
-	
-	public function __construct(){
+	public function __construct() {
 		$this->isLocal = 0;
-		if($this->isLocal == 0){
-			$this->localConfig();
-		}else{
-			$this->liveConfig();
+		if ($this->isLocal == 0) {
+			$this->localConfig ();
+		} else {
+			$this->liveConfig ();
 		}
 	}
-	function localConfig(){
+	function localConfig() {
 		$this->host = "localhost";
 		$this->user = "root";
 		$this->password = "";
@@ -49,18 +46,17 @@ class SystenConfig{
 		$this->uploadUrl = $this->siteUrl . 'public/uploads/';
 		$this->publicImages = $this->siteUrl . 'public/images/';
 		
+		$this->skinAdmin = "admin";
 		
-		$this->provider = array(
-				'admin'=>'administrator',
+		$this->provider = array (
+				'admin' => 'administrator',
 				'api' => 'api',
-				'test'=>'test',
+				'test' => 'test' 
 		);
-
-		$this->language = "vn";
-		$this->default_logo = $this->publicImages ."logo.png";
-	}
-	
-	function liveConfig(){
 		
+		$this->language = "vn";
+		$this->default_logo = $this->publicImages . "logo.png";
+	}
+	function liveConfig() {
 	}
 }

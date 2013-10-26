@@ -8,7 +8,7 @@
 <?php echo $view->includeJs($config->skinJs . 'easySlider1.7.js')?>
 
 </head>
-<body>
+<body class="columns-left">
 
 	<header>
 		<section class="container">
@@ -36,16 +36,18 @@
 	</header>
 
 	<article>
+		
 		<section class="container">
-		<div class="block slider">
-			<?php echo isset($slider) ? $view->extractView($slider) : ""?>
-		</div>
-		<?php echo isset($content) ? $view->extractView($content) : ""?>
+			<div class="cols-left left">
+				<?php echo isset($left) ? $view->extractView($left) : ""?>	
+			</div>
+			<div class="content right">
+				<?php echo isset($content) ? $view->extractView($content) : ""?>	
+			</div>
+		
 	</section>
 	</article>
-	<footer>
-		<?php echo isset($footer) ? $view->extractView($footer) : ""?>
-	 </footer>
+	<footer> footer </footer>
 
 
 </body>

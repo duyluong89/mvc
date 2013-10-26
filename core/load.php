@@ -1,16 +1,26 @@
 <?php
 class Load{
-
-	public function view($name,array $vars = null,$_return = TRUE){
+	
+	public function view($name,array $vars = null,$_return = TRUE, $folderView = null){
+		global $view;
 		$request = new Request();
 		$method = $request->getMethod();
 		if(is_array($name)) {
 			$vars = $name;
 			$name = $method;
 		}
-		$file = APPPATH.'views/' . $request->getController() .'/'.$name.'View.php';
+		if(is_null($folderView)) $folderView = $request->getController();
+		$file = APPPATH.'views/' . $folderView .'/'.$name.'View.php';
 		if(is_readable($file)){
-
+			if($vars=== null){
+				$vars = $view->getData();
+			}else if(is_array($vars)){
+					if(!array_key_exists('view', $vars)){
+						$vars = array_merge($vars,$view->getData());
+					}	
+			}else{
+				$vars = array_merge(array($vars => $vars),$view->getData());
+			}
 			if(isset($vars)){
 				extract($vars);
 			}

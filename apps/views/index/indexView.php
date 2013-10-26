@@ -1,3 +1,5 @@
-<?php foreach ($lstObj as $value):?>
-<?php echo $value->getName();?>
-<?php endforeach;?>
+<div class="content-view">
+	<div class="block">
+		<?php echo isset($note) ? $view->extractView($note) : ""?>
+	</div>
+</div>

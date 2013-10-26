@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 *{margin:0; padding:0}
+.left{float:left;}
+.right{float:right;}
 ul{list-style:none;}
 body{background:#03517e;font-family: Arial;
 font-size: 12px;
@@ -17,9 +19,11 @@ nav ul li{float: left; padding-right:10px;padding: 6px;}
 nav ul li a{color:#dadada; text-decoration: none; font-size:12px;font-weight: bold;
 text-transform: uppercase;}
 article{min-height:600px; background:#ececec; width:100%}
-footer{}
+footer{width: 940px;margin: 0 auto; min-height:100px}
 .right{float:right;}
 nav ul.right{float:right;}
 .block-user-info ul li{ float:left; padding:6px;}
 .block-user-info ul li a{color:#dadada; text-decoration: none; font-size:12px;font-weight: bold;
 text-transform: capitalize;}
+.cols-left{width: 230px;}
+.columns-left section.container div.content.right{width: 700px;}

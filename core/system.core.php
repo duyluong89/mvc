@@ -9,6 +9,7 @@ require_once 'core/registry.php';
 require_once 'core/models.php';
 
 loadfiles(APPPATH . 'entity/');
+loadfiles(APPPATH . 'common/');
 
 function loadfiles($fullpath = ""){
 	$handle = opendir($fullpath);
