@@ -4,6 +4,7 @@
 <title>Test mvc</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php echo $view->includeStyle($config->skinCss . 'style.css')?>
+<?php echo $view->includeStyle($config->skinCss . 'screen.css')?>
 <?php echo $view->includeJs($config->skinJs . 'jquery.js')?>
 <?php echo $view->includeJs($config->skinJs . 'easySlider1.7.js')?>
 

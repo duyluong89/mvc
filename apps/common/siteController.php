@@ -4,7 +4,9 @@ class siteController extends controllers {
 		parent::__construct ();
 		$this->load->model ( 'menu' );
 		$this->load->model ( 'block' );
-		$this->loadBlock();
+		$this->load->model ( 'slider' );
+		$this->load->model ( 'technology' );
+		$this->loadBlock ();
 	}
 	/*
 	 * (non-PHPdoc) @see controllers::index()
@@ -13,14 +15,16 @@ class siteController extends controllers {
 		// TODO Auto-generated method stub
 	}
 	private function loadBlock() {
-		$blocks =  $this->block->getBlockByController();
-		foreach ($blocks as $block){
-			if($block->getUseBlock()){
-				$data = $this->load->view('static',array('block'=>$block), true, 'block');
-				$this->view->assigned($block->getPosition(), $data);
-			}else{
-				$_content = "<div class='block " . $block->getBlockClass(). "'>" . $block->getContent() . "</div>";
-				$this->view->assigned($block->getPosition(), $_content);
+		$blocks = $this->block->getBlockByController ();
+		foreach ( $blocks as $block ) {
+			if ($block->getUseBlock ()) {
+				$data = $this->load->view ( 'static', array (
+						'block' => $block 
+				), true, 'block' );
+				$this->view->assigned ( $block->getPosition (), $data );
+			} else {
+				$_content = "<div class='block " . $block->getBlockClass () . "'>" . $block->getContent () . "</div>";
+				$this->view->assigned ( $block->getPosition (), $_content );
 			}
 		}
 	}

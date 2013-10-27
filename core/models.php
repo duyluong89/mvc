@@ -35,5 +35,14 @@ abstract class baseModels{
 		return $obj;
 	}
 	
+	public function select_by_puslish(){
+		$result = $this->db->select($this->getTableName(),"puslish = 1");
+		return $result;
+	}
+	
+	public function select_pushlish_order(){
+		$result = $this->db->select($this->getTableName(),"puslish = 1",'order asc');
+		return $result;
+	}
 	
 }
