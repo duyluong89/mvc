@@ -74,12 +74,15 @@ class db{
 			
 		}
 		if(!is_null($order_by) && is_string($order_by)){
-			$query .=" order by $order_by";
+			$query .=" ORDER BY $order_by";
+			//echo $query; die();
 		}
-		$result = mysql_query($query,$this->connect);
+		
+		$result = mysql_query($query,$this->connect) or die('can not excute query ');
 		$return_o = array();
 		$listFields = mysql_list_fields($this->config->database, $table,$this->connect);
 		$num = mysql_num_fields($listFields);
+		
 		while ($row = mysql_fetch_array($result)){
 			$a =  str_replace("?",$table,"?Entity");
 			$newEntry = new $a();

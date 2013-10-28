@@ -41,7 +41,7 @@ abstract class baseModels{
 	}
 	
 	public function select_pushlish_order(){
-		$result = $this->db->select($this->getTableName(),"puslish = 1",'order asc');
+		$result = $this->db->select($this->getTableName(),"puslish = 1",'`order` asc');
 		return $result;
 	}
 	
